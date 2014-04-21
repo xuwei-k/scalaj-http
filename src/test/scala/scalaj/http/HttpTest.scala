@@ -127,23 +127,12 @@ class HttpTest {
   }
 
   @Test
-  def unofficialOverrideTheMethod: Unit = {
-    val reqMethod = Http(url).method("FOO").process(c => {
-      c.getRequestMethod
-    })
-    assertEquals("should have overriden the request method", "FOO", reqMethod)
-  }
-
-  @Test
   def allModificationsAreAdditive() {
     val params = List("a" -> "b")
-    val proxy = new Proxy(Proxy.Type.HTTP, new InetSocketAddress("host", 80))
     val headers = List("foo" -> "bar")
     val options = List(HttpOptions.readTimeout(1234))
 
     var req = Http(url).params(params)
-
-    req = req.proxy("host", 80)
 
     assertEquals("params", params, req.params)
 
@@ -151,16 +140,13 @@ class HttpTest {
     req = req.options(options)
 
     assertEquals("params", params, req.params)
-    assertEquals("proxy", proxy, req.proxy)
     assertEquals("options", expectedNewOptions, req.options)
 
     req = req.headers(headers)
 
     assertEquals("params", params, req.params)
-    assertEquals("proxy", proxy, req.proxy)
     assertEquals("options", expectedNewOptions, req.options)
     assertEquals("headers", headers, req.headers)
 
   }
->>>>>>> cf64196... fix for issue where Request copies lost data
 }
