@@ -95,6 +95,8 @@ object Http {
       OAuth.sign(this, consumer, token, verifier)
     }
 
+    def method(m: String): Request = option(HttpOptions.method(m))
+
     def charset(cs: String): Request = copy(charset = cs)
 
     def sendBufferSize(numBytes: Int): Request = copy(sendBufferSize = numBytes)
