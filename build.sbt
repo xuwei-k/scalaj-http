@@ -7,7 +7,7 @@ organization := "org.scalaj"
 scalaVersion := "2.12.8"
 
 libraryDependencies ++= Seq(
-  "junit"                         % "junit"                % "4.12"             % "test",
+  "junit"                         % "junit"                % "4.13.1"             % "test",
   "com.novocode"                  % "junit-interface"      % "0.11"             % "test",
   "org.eclipse.jetty"             % "jetty-server"         % "8.2.0.v20160908"  % "test",
   "org.eclipse.jetty"             % "jetty-servlet"        % "8.2.0.v20160908"  % "test",
@@ -15,7 +15,7 @@ libraryDependencies ++= Seq(
 )
 
 libraryDependencies += {
-  "com.fasterxml.jackson.module" %% "jackson-module-scala" % "2.9.9"            % "test"
+  "com.fasterxml.jackson.module" %% "jackson-module-scala" % "2.9.10"            % "test"
 }
 
 enablePlugins(BuildInfoPlugin)
